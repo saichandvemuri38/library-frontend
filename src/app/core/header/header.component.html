@@ -1,0 +1,11 @@
+<!-- <p>header works!</p> -->
+<nav class="navbar bg-body-tertiary shadow-sm">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <h5>LMS</h5>
+
+    <div class="">
+      <p-avatar label="P" styleClass="mr-2" size="large" shape="circle"  (click)="menu.toggle($event)"></p-avatar>
+      <p-menu [model]="items" #menu [popup]="true"></p-menu>
+    </div>
+  </div>
+</nav>

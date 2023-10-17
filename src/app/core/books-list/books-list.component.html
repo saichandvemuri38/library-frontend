@@ -1,0 +1,17 @@
+<!-- <p>books-list works!</p> -->
+<div class="nav ">
+  <p-card *ngFor="let item of bookList" [header]="item.name" [style]="{ width: '360px',margin:'10px'}">
+    <ng-template pTemplate="header">
+      <div class="" style="height: 150px;">
+        <img [alt]="item.name" class="h-100 img-fluid" [src]="item.image" />
+      </div>
+    </ng-template>
+    <p>
+      {{item.discription}}
+    </p>
+    <div class="d-flex align-items-center justify-content-between">
+      <p-button icon="pi pi-list" rounded="true" text="true" raised="true"></p-button>
+      <p-button icon="pi pi-shopping-cart" pTooltip="Add To Cart" rounded="true" text="true" raised="true"></p-button>
+    </div>
+  </p-card>
+</div>

@@ -1,0 +1,73 @@
+<!-- <p>admin-dashboard works!</p> -->
+<div class="m-3">
+  <p-card header="Add Book">
+    <form class="row m-0" [formGroup]="addBookForm">
+      <div class="col-md-3">
+        <!-- <input class="form-control" type="file" id="formFile"> -->
+        <input type="file" class="form-control mt-2" (change)="onUpload($event)">
+      </div>
+      <div class="col-md-3">
+        <span class="p-float-label">
+          <input pInputText id="2" class="w-100" formControlName="name"/>
+          <label htmlFor="2">Name</label>
+        </span>
+      </div>
+      <div class="col-md-3">
+        <span class="p-float-label">
+          <input pInputText id="2" class="w-100" formControlName="description"/>
+          <label htmlFor="2">Description</label>
+        </span>
+      </div>
+      <div class="col-md-3">
+        <span class="p-float-label">
+          <input pInputText id="2" class="w-100" formControlName="author"/>
+          <label htmlFor="2">Author</label>
+        </span>
+      </div>
+      <div class="col-md-3 mt-4 ">
+        <span class="p-float-label">
+          <input pInputText id="2" class="w-100" formControlName="publisher"/>
+          <label htmlFor="2">Publisher</label>
+        </span>
+      </div>
+      <div class="col-md-3 mt-4">
+        <span class="p-float-label">
+          <p-dropdown [options]="department" class="w-100" styleClass="w-100" optionLabel="name" optionValue="name" formControlName="department" [autoDisplayFirst]="false"></p-dropdown>
+          <!-- <input pInputText id="2" class="w-100" formControlName="department"/> -->
+          <label htmlFor="2">Department</label>
+        </span>
+      </div>
+      <div class="col-md-3 mt-4">
+        <span class="p-float-label">
+          <p-inputNumber formControlName="price" inputId="locale-user" [minFractionDigits]="2" class="w-100" styleClass="w-100"></p-inputNumber>
+          <!-- <input pInputText id="2" class="w-100" formControlName="price"/> -->
+          <label htmlFor="2">Price</label>
+        </span>
+      </div>
+      <div class="col-md-3 mt-4">
+        <span class="p-float-label">
+          <p-inputNumber formControlName="quantity" inputId="locale-user" [minFractionDigits]="2" class="w-100" styleClass="w-100"></p-inputNumber>
+          <!-- <input pInputText id="2" class="w-100" formControlName="quantity"/> -->
+          <label htmlFor="2">Quantity</label>
+        </span>
+      </div>
+      <div class="col-md-3 mt-4">
+        <span class="p-float-label">
+          <input pInputText id="2" class="w-100" formControlName="availability"/>
+          <label htmlFor="2">Availability</label>
+        </span>
+      </div>
+      <div class="col-md-3 mt-4">
+        <span class="p-float-label">
+          <p-inputNumber formControlName="rent" class="w-100" styleClass="w-100" inputId="currency-us" mode="currency" currency="USD" locale="en-US"> </p-inputNumber>
+          <label htmlFor="2">Rent</label>
+        </span>
+      </div>
+    </form>
+    <div class="d-flex align-items-center justify-content-end">
+      <p-button label="View Books" icon="pi pi-check" size="small" styleClass="p-button-sm"></p-button>
+      <p-button label="Issue Books" icon="pi pi-check" size="small" styleClass="p-button-sm" class="ms-2"></p-button>
+      <p-button label="Submit" icon="pi pi-check" size="small" styleClass="p-button-sm" class="ms-2" (onClick)="formSubmit()"></p-button>
+    </div>
+  </p-card>
+</div>
