@@ -2,10 +2,13 @@
 <nav class="navbar bg-body-tertiary shadow-sm">
   <div class="container-fluid d-flex align-items-center justify-content-between">
     <h5>LMS</h5>
+    <h5>{{payload.role}}</h5>
 
     <div class="">
-      <p-avatar label="P" styleClass="mr-2" size="large" shape="circle"  (click)="menu.toggle($event)"></p-avatar>
+      <p-avatar label="P" styleClass="me-2" size="small" shape="circle"  (click)="menu.toggle($event)"></p-avatar>
       <p-menu [model]="items" #menu [popup]="true"></p-menu>
+      <p-avatar icon="pi pi-shopping-cart" styleClass="me-2" size="small" shape="circle"  (click)="menu.toggle($event)" *ngIf="payload.role == 'Student'"></p-avatar>
     </div>
+
   </div>
 </nav>

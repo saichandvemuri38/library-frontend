@@ -10,13 +10,17 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  constructor(public auth:AuthService) { }
+  public payload;
+  constructor(public auth: AuthService) {
+    this.payload = JSON.parse(localStorage.getItem('payload') );
+    console.log(this.payload)
+  }
   public items = [
     {
       label: 'Sign Out',
       icon: 'pi pi-sign-out',
       command: () => {
-           this.auth.logOut();
+        this.auth.logOut();
       }
     },
     // {

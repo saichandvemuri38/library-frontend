@@ -23,6 +23,7 @@ import { AdminDashboardComponent } from './core/admin-dashboard/admin-dashboard.
 import { SuperAdminDashboardComponent } from './core/super-admin-dashboard/super-admin-dashboard.component';
 import { SharedService } from './services/shared.service';
 import { LibraryListComponent } from './core/library-list/library-list.component';
+import { CartComponent } from './core/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LibraryListComponent } from './core/library-list/library-list.component
     AddBookComponent,
     AdminDashboardComponent,
     SuperAdminDashboardComponent,
-    LibraryListComponent
+    LibraryListComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
