@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +12,8 @@ export class HeaderComponent implements OnInit {
 
   }
   public payload;
-  constructor(public auth: AuthService) {
-    this.payload = JSON.parse(localStorage.getItem('payload') );
+  constructor(public auth: AuthService, public sharedService: SharedService) {
+    this.payload = JSON.parse(sessionStorage.getItem('payload'));
     console.log(this.payload)
   }
   public items = [
@@ -31,4 +32,9 @@ export class HeaderComponent implements OnInit {
     //   }
     // }
   ];
+  public getRecords() {
+    this.sharedService.get('check-in').subscribe((res:any)=>{
+      console.log(res);
+    })
+  }
 }

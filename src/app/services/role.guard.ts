@@ -12,7 +12,7 @@ export class RoleGuard implements CanActivate {
   constructor(private authService: AuthService) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     console.log(route)
-    const payload: any = JSON.parse(localStorage.getItem('payload'));
+    const payload: any = JSON.parse(sessionStorage.getItem('payload'));
     if (!!route.data['role']) {
 
       const routeRoles = route.data['role'];

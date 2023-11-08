@@ -31,8 +31,8 @@ export class RegisterComponent implements OnInit{
   onSubmit(){
     this._auth.postUserdata(this.registerData.value).subscribe(res =>{
       console.log(res);
-      localStorage.setItem('token',res.token);
-      localStorage.setItem('payload',JSON.stringify(res.payload));
+      sessionStorage.setItem('token',res.token);
+      sessionStorage.setItem('payload',JSON.stringify(res.payload));
       if(res.payload.role == "Student" || res.payload.role == "Teacher" ){
         this._route.navigate(['/user-dashboard'])
       }

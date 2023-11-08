@@ -19,18 +19,21 @@ export class AuthService {
     return this._http.post<any>(this.Url + 'login', x).pipe(catchError(this.errorHandler));
   }
   public loggedIn() {
-    return !!localStorage.getItem('token');
+    return !!sessionStorage.getItem('token');
   }
   public logOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('payload');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('payload');
     this._router.navigate(['/login']);
   }
   public getToken() {
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
   public getRole(){
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
+  }
+  public getPayload(){
+    return JSON.parse(sessionStorage.getItem('payload'));
   }
   private isAuthenticatedSubject$ = new BehaviorSubject<boolean>(false);
   public isAuthenticated$ = this.isAuthenticatedSubject$.asObservable();

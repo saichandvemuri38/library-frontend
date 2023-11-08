@@ -17,7 +17,7 @@ export class AdminDashboardComponent implements OnInit {
   }
   public payload: Object;
   ngOnInit(): void {
-    this.payload = JSON.parse(localStorage.getItem('payload'));
+    this.payload = JSON.parse(sessionStorage.getItem('payload'));
     console.log(this.payload['libraryname'])
   }
   addBook() {
@@ -43,9 +43,9 @@ export class AdminDashboardComponent implements OnInit {
       publisher: this.addBookForm.value.publisher,
       department: this.addBookForm.value.department,
       price: this.addBookForm.value.price,
-      quantity: this.addBookForm.value.quantity,
-      availability: this.addBookForm.value.availability,
-      rent: this.addBookForm.value.rent,
+      // quantity: this.addBookForm.value.quantity,
+      // availability: this.addBookForm.value.availability,
+      // rent: this.addBookForm.value.rent,
       libraryname: this.payload['libraryname']
     }
     this.shared.post("add-book", obj).subscribe((res) => {
@@ -72,9 +72,6 @@ export class AdminDashboardComponent implements OnInit {
       this.changeFile(file).then((base64: any) => {
         console.log(base64);
         this.uploadedFiles = base64;
-        // const blob = new Blob([base64] ,{type: 'image/png'});
-        // this.fileBlob = this.b64Blob([base64], type);
-        // console.log(blob)
       });
     } else alert('Nothing')
   }

@@ -17,8 +17,13 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { TooltipModule } from 'primeng/tooltip';
+import { ImageModule } from 'primeng/image';
+import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { CalendarModule } from 'primeng/calendar';
 
-const primeNg = [TooltipModule,InputNumberModule,FieldsetModule,AutoCompleteModule,MenuModule,AvatarModule,AvatarGroupModule,DropdownModule,InputTextModule,PasswordModule,ButtonModule,CardModule,RadioButtonModule,CheckboxModule,FileUploadModule,SidebarModule,ListboxModule,CommonModule]
+
+const primeNg = [CalendarModule,DialogModule,TableModule,ImageModule,TooltipModule,InputNumberModule,FieldsetModule,AutoCompleteModule,MenuModule,AvatarModule,AvatarGroupModule,DropdownModule,InputTextModule,PasswordModule,ButtonModule,CardModule,RadioButtonModule,CheckboxModule,FileUploadModule,SidebarModule,ListboxModule,CommonModule]
 
 @NgModule({
   declarations: [],
