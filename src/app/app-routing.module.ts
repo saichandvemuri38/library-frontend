@@ -10,6 +10,7 @@ import { SuperAdminDashboardComponent } from './core/super-admin-dashboard/super
 import { BooksListComponent } from './core/books-list/books-list.component';
 import { CartComponent } from './core/cart/cart.component';
 import { BookUserRecordsComponent } from './core/book-user-records/book-user-records.component';
+import { ReserveBookListComponent } from './core/reserve-book-list/reserve-book-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'book-list', component: BooksListComponent },
   { path: 'cart', component: CartComponent },
   { path: 'records', component: BookUserRecordsComponent },
+  { path: 'reserve-book', component: ReserveBookListComponent },
   { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Student' } },
   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Admin' } },
   { path: 'super-admin-dashboard', component: SuperAdminDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Super-Admin' } }

@@ -8,8 +8,6 @@
         <th>Book Name</th>
         <th>Author</th>
         <th>Price</th>
-        <!-- <th>Rent</th>
-        <th>Quantity</th> -->
         <th>Status</th>
         <th>Start Date</th>
         <th>End Date</th>
@@ -26,8 +24,6 @@
         <td>{{ product.name }}</td>
         <td>{{ product.author }}</td>
         <td>{{ product.price }}</td>
-        <!-- <td>{{ product.rent }}</td>
-        <td>{{ product.quantity }}</td> -->
         <td [ngClass]="{'green':product.status == 'check-in','red':product.status == 'check-out'}">{{ product.status }}
         </td>
         <td>{{ product.startDate | date:'MM/dd/yy' }} </td>
@@ -38,7 +34,8 @@
             *ngIf="product.renewal == true" pTooltip="Renewal"></p-button>
           <p-button icon="pi pi-dollar" (click)="payFine(product)" severity="secondary" class="mx-2"
             *ngIf="product.fine"></p-button>
-          <p-button icon="pi pi-sign-out" severity="secondary" class="mx-2" (click)="showCheckOutDialog(product)" *ngIf=" !(product.fine || product.status == 'check-out'  )"></p-button>
+          <p-button icon="pi pi-sign-out" severity="secondary" class="mx-2" (click)="showCheckOutDialog(product)"
+            *ngIf=" !(product.fine || product.status == 'check-out'  )"></p-button>
         </td>
       </tr>
     </ng-template>
@@ -62,8 +59,8 @@
 <p-dialog header="Checkout Book" [modal]="true" [(visible)]="checkoutBook" [closable]="false" [style]="{width: '50vw'}">
   <div class="w-100">
     <span class="p-float-label mt-4">
-      <p-dropdown [options]="libraryList" class="w-100" styleClass="w-100" optionLabel="name"  appendTo="body" [(ngModel)]="checkOutLibName"
-        [autoDisplayFirst]="false"></p-dropdown>
+      <p-dropdown [options]="libraryList" class="w-100" styleClass="w-100" optionLabel="name" appendTo="body"
+        [(ngModel)]="checkOutLibName" [autoDisplayFirst]="false"></p-dropdown>
       <label htmlFor="2">Library Name</label>
     </span>
     <div class="d-flex align-items-center justify-content-between">

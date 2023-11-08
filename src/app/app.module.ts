@@ -25,6 +25,7 @@ import { SharedService } from './services/shared.service';
 import { LibraryListComponent } from './core/library-list/library-list.component';
 import { CartComponent } from './core/cart/cart.component';
 import { BookUserRecordsComponent } from './core/book-user-records/book-user-records.component';
+import { ReserveBookListComponent } from './core/reserve-book-list/reserve-book-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { BookUserRecordsComponent } from './core/book-user-records/book-user-rec
     SuperAdminDashboardComponent,
     LibraryListComponent,
     CartComponent,
-    BookUserRecordsComponent
+    BookUserRecordsComponent,
+    ReserveBookListComponent
   ],
   imports: [
     BrowserModule,

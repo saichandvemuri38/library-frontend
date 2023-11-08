@@ -12,6 +12,11 @@ export class BooksListComponent implements OnInit {
   public bookList: any = [];
   public payload: any;
   public libname;
+  public checkOutLibName;
+  public libraryList;
+  public checkoutBook;
+  public bookDetails;
+
   constructor(public sharedService: SharedService, private sanitizer: DomSanitizer, public router: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -52,35 +57,22 @@ export class BooksListComponent implements OnInit {
       this.getRecords();
     })
   }
-  public checkOutLibName;
-  public libraryList;
-  public checkoutBook;
-  public bookDetails;
-  public showCheckOutDialog(item) {
-    this.checkoutBook = true;
-    this.bookDetails= item;
-    this.sharedService.get('library-list').subscribe(res => {
-      this.libraryList = res.filter(x=> x.name != this.libname)
-    })
-  }
-  public close() {
-    this.checkoutBook = false;
-    this.checkOutLibName= "";
-    this.bookDetails = "";
-  }
-  public submitReserveBook(){
+
+  public submitReserveBook(product) {
+    console.log(product)
     let obj = {
-      name: this.bookDetails.name,
-      description: this.bookDetails.description,
-      author: this.bookDetails.author,
-      publisher: this.bookDetails.publisher,
-      department: this.bookDetails.department,
-      price: this.bookDetails.price,
-      fromlibraryname: this.libname,
-      tolibraryname:this.checkOutLibName.name,
+      image: product.image,
+      name: product.name,
+      bookId: product._id,
+      description: product.description,
+      author: product.author,
+      publisher: product.publisher,
+      department: product.department,
+      price: product.price,
+      libraryname: this.libname,
       userId: this.payload.subject
     }
-    this.sharedService.post('reserve-book',obj).subscribe(res=>{
+    this.sharedService.post('reserve-book', obj).subscribe(res => {
       console.log(res);
     })
   }

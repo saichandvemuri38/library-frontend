@@ -1,0 +1,29 @@
+<div class="m-3">
+  <p-table [value]="bookList" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Image</th>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Department</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>
+          <p-image [src]="product.image" alt="Image" width="150" height="50" [preview]="true"></p-image>
+        </td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.author }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.department }}</td>
+        <td>
+          <p-button icon="pi pi-sign-in" pTooltip="Check In" class="ms-2" rounded="true" text="true" raised="true"
+            (onClick)="checkIn(product)"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

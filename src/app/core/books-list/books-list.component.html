@@ -49,7 +49,7 @@
         <td>
           <!-- <p-button icon="pi pi-list" rounded="true" text="true" raised="true"></p-button> -->
           <p-button icon="pi pi-book" rounded="true" text="true" raised="true" pTooltip="Reserve Book"
-            (click)="showCheckOutDialog(product)"></p-button>
+          (click)="submitReserveBook(product)"></p-button>
           <p-button icon="pi pi-sign-in" pTooltip="Check In" class="ms-2" rounded="true" text="true" raised="true"
             (onClick)="checkIn(product)"></p-button>
         </td>
@@ -59,13 +59,7 @@
 </div>
 
 
-
-
-
-
-
-
-<p-dialog header="Reserve Book" [modal]="true" [(visible)]="checkoutBook" [closable]="false" [style]="{width: '50vw'}">
+<!-- <p-dialog header="Reserve Book" [modal]="true" [(visible)]="checkoutBook" [closable]="false" [style]="{width: '50vw'}">
   <div class="w-100">
     <span class="p-float-label mt-4">
       <p-dropdown [options]="libraryList" class="w-100" styleClass="w-100" optionLabel="name" appendTo="body"
@@ -76,7 +70,5 @@
       <p-button severity="secondary" label="Close" (click)="close()" class="mt-2"></p-button>
       <p-button severity="secondary" label="Submit" class="mt-2" (click)="submitReserveBook()"></p-button>
     </div>
-
   </div>
-
-</p-dialog>
+</p-dialog> -->
