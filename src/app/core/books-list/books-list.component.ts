@@ -16,6 +16,7 @@ export class BooksListComponent implements OnInit {
   public libraryList;
   public checkoutBook;
   public bookDetails;
+  public reserveList;
 
   constructor(public sharedService: SharedService, private sanitizer: DomSanitizer, public router: ActivatedRoute) { }
 
@@ -28,6 +29,20 @@ export class BooksListComponent implements OnInit {
   getRecords() {
     this.sharedService.get("book-list?libraryname=" + this.libname).subscribe(res => {
       this.bookList = res;
+      this.getReserveRecords();
+    })
+  }
+  getReserveRecords() {
+    this.sharedService.get('reserve-book?userId=' + this.payload.subject).subscribe(res => {
+      this.reserveList = res;
+      this.reserveList.forEach(element => {
+        this.bookList.map(x=>{
+          if(x._id == element.bookId){
+            x.status = "reserved"
+          }
+        })
+      });
+      console.log(this.bookList)
     })
   }
   checkIn(item) {
@@ -73,7 +88,7 @@ export class BooksListComponent implements OnInit {
       userId: this.payload.subject
     }
     this.sharedService.post('reserve-book', obj).subscribe(res => {
-      console.log(res);
+    this.getRecords()
     })
   }
 }
