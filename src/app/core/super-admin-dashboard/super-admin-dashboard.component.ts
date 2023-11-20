@@ -57,6 +57,7 @@ export class SuperAdminDashboardComponent implements OnInit {
   onSubmit() {
     this._auth.postUserdata(this.registerData.value).subscribe(res => {
       console.log(res);
+      this.registerData.reset();
     },
       (error: any) => {
         console.log(error)
@@ -113,6 +114,7 @@ export class SuperAdminDashboardComponent implements OnInit {
     }
     this.shared.addLibrary(obj).subscribe(res => {
       console.log(res);
+      this.addLibraryForm.reset();
       this.getLibraryList();
     })
   }

@@ -5,10 +5,10 @@
     <h5>{{payload.role}}</h5>
 
     <div class="">
-      <p-avatar label="P" styleClass="me-2" size="small" shape="circle"  (click)="menu.toggle($event)"></p-avatar>
+      <p-avatar  icon="pi pi-user" styleClass="me-2" size="small" shape="circle"  (click)="menu.toggle($event)"></p-avatar>
       <p-menu [model]="items" #menu [popup]="true"></p-menu>
-      <p-avatar icon="pi pi-bars" styleClass="me-2" routerLink="records" size="small" shape="circle"  *ngIf="payload.role == 'Student'"></p-avatar>
-      <p-avatar icon="pi pi-bars" styleClass="me-2" routerLink="reserve-book" size="small" shape="circle"  *ngIf="payload.role == 'Student'"></p-avatar>
+      <p-avatar icon="pi pi-sign-in" pTooltip="Books History" tooltipPosition="left" styleClass="me-2" routerLink="records" size="small" shape="circle"  *ngIf="payload.role == 'Student'"></p-avatar>
+      <p-avatar icon="pi pi-book" styleClass="me-2" pTooltip="Reserve Book List" routerLink="reserve-book" size="small" shape="circle"  *ngIf="payload.role == 'Student'"></p-avatar>
     </div>
 
   </div>

@@ -33,7 +33,7 @@ export class BooksListComponent implements OnInit {
     })
   }
   getReserveRecords() {
-    this.sharedService.get('reserve-book?userId=' + this.payload.subject).subscribe(res => {
+    this.sharedService.get('reserve-book?userId=' ).subscribe(res => {
       this.reserveList = res;
       this.reserveList.forEach(element => {
         this.bookList.map(x=>{

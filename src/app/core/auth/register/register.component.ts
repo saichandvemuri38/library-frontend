@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class RegisterComponent implements OnInit{
   public registerData: FormGroup;
-  public roles:any = [{id:1,name:"Teacher"},{id:2,name:"Student"}]
+  public roles:any = [{id:2,name:"Student"}]
   constructor( private formBuilder: FormBuilder,private _auth:AuthService,private _route:Router) {
     this.registerData = this.registerForm();
    }
