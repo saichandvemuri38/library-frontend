@@ -16,16 +16,16 @@ import { SpinnerService } from './services/auth/spinner.service';
 import { HeaderComponent } from './core/header/header.component';
 import { BooksListComponent } from './core/books-list/books-list.component';
 
-import { AddBookComponent } from './core/add-book/add-book.component';
+
 import { AuthGuard } from './services/auth.guard';
 import { RoleGuard } from './services/role.guard';
 import { AdminDashboardComponent } from './core/admin-dashboard/admin-dashboard.component';
 import { SuperAdminDashboardComponent } from './core/super-admin-dashboard/super-admin-dashboard.component';
 import { SharedService } from './services/shared.service';
 import { LibraryListComponent } from './core/library-list/library-list.component';
-import { CartComponent } from './core/cart/cart.component';
 import { BookUserRecordsComponent } from './core/book-user-records/book-user-records.component';
 import { ReserveBookListComponent } from './core/reserve-book-list/reserve-book-list.component';
+import { PaymentComponent } from './core/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +35,12 @@ import { ReserveBookListComponent } from './core/reserve-book-list/reserve-book-
     UserDashboardComponent,
     HeaderComponent,
     BooksListComponent,
-
-    AddBookComponent,
     AdminDashboardComponent,
     SuperAdminDashboardComponent,
     LibraryListComponent,
-    CartComponent,
     BookUserRecordsComponent,
-    ReserveBookListComponent
+    ReserveBookListComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

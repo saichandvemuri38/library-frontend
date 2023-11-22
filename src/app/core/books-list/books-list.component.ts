@@ -61,6 +61,7 @@ export class BooksListComponent implements OnInit {
       quantity: item.quantity,
       availability: item.availability,
       rent: item.rent,
+      description: item.description,
       libraryname: item.libraryname,
       userId: this.payload.subject,
       status: "check-in",

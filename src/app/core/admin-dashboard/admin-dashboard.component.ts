@@ -50,6 +50,7 @@ export class AdminDashboardComponent implements OnInit {
     }
     this.shared.post("add-book", obj).subscribe((res) => {
       console.log(res);
+      this.addBookForm.reset();
     })
   }
 

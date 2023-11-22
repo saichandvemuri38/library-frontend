@@ -21,6 +21,9 @@ export class SharedService {
   public get(url: any) {
     return this._http.get<any>(this.Url + url).pipe(catchError(this.errorHandler))
   }
+  public delete(url:any,body:any){
+    return this._http.delete<any>(this.Url + url,body).pipe(catchError(this.errorHandler));
+  }
   public errorHandler(error: HttpErrorResponse) {
     return throwError(error.message || "Unknown Server Error");
   }

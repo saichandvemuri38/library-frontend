@@ -48,4 +48,20 @@ export class ReserveBookListComponent implements OnInit {
       this.getRecords();
     })
   }
+  deleteItem(product){
+    let obj = {
+      name: product.name,
+      image: product.image,
+      description: product.description,
+      author: product.author,
+      publisher: product.publisher,
+      department: product.department,
+      price: product.price,
+      libraryname: product.libraryname
+    }
+    this.sharedService.delete('delete-reserve-book?id='+`${product._id}`,obj).subscribe((res) => {
+      console.log(res);
+      this.getRecords();
+    })
+  }
 }

@@ -34,7 +34,7 @@
           <p-image [src]="product.image" alt="Image" width="150" height="50" [preview]="true"></p-image>
         </td>
         <td>{{ product.name }}</td>
-        <td>{{product.street}}{{product.city}}{{product.state}}{{product.zip4}}</td>
+        <td>{{product.street}}&nbsp;{{product.city}}&nbsp;&nbsp;{{product.state}}&nbsp;{{product.zip4}}</td>
         <td> <p-button icon="pi pi-arrow-right" rounded="true" text="true" raised="true" [queryParams]="{libraryname:product.name??null}" routerLink="/book-list"></p-button></td>
       </tr>
     </ng-template>

@@ -14,7 +14,7 @@ export class BookUserRecordsComponent implements OnInit {
   public rangeDates;
   public minDate = new Date();
   public checkoutBook = false;
-
+  public payment = false;
   public items: MenuItem[] | undefined = [{ label: "Renewal Book" }]
   constructor(public sharedService: SharedService, public authService: AuthService) { }
   ngOnInit(): void {
@@ -27,7 +27,8 @@ export class BookUserRecordsComponent implements OnInit {
       console.log(res);
       this.checkInList = res;
       this.checkInList.map(x => {
-        new Date(x.endDate) < new Date() && (x.status == "check-in" || x.status == "paid") ? x.renewal = true : x = x;
+        console.log(new Date(x.endDate) < new Date() && x.fine);
+        (new Date(x.endDate) < new Date()) && ( x.status == "paid") ? x.renewal = true : x = x;
       })
     })
   }
@@ -42,7 +43,7 @@ export class BookUserRecordsComponent implements OnInit {
     this.rangeDates = "";
     this.checkoutBook = false;
     this.selectedProduct = "";
-    this.checkOutLibName= "";
+    this.checkOutLibName = "";
   }
   public renewalDate() {
     let obj = {
@@ -56,11 +57,10 @@ export class BookUserRecordsComponent implements OnInit {
     this.rangeDates = "";
     this.visible = false;
   }
+  public paymentRecords;
   public payFine(product) {
-    this.sharedService.post('pay-fine', product).subscribe(res => {
-      console.log(res);
-      this.getRecords();
-    })
+    this.payment = true;
+   this.paymentRecords = product;
   }
   public checkOutLibName;
   public libraryList;
@@ -73,7 +73,7 @@ export class BookUserRecordsComponent implements OnInit {
     })
   }
   public submitCheckout(item) {
-    console.log(item,this.selectedProduct);
+    console.log(item, this.selectedProduct);
     let obj = {
       name: this.selectedProduct.name,
       description: this.selectedProduct.description,
@@ -81,14 +81,21 @@ export class BookUserRecordsComponent implements OnInit {
       publisher: this.selectedProduct.publisher,
       department: this.selectedProduct.department,
       price: this.selectedProduct.price,
-      libraryname:item.name,
-      bookId:this.selectedProduct.bookId,
-
+      libraryname: item.name,
+      bookId: this.selectedProduct.bookId,
+      image: this.selectedProduct.image
     }
     this.sharedService.post('check-out', obj).subscribe(res => {
       console.log(res)
       this.getRecords();
       this.close()
+    })
+  }
+  public paymentSuccess(){
+    this.payment = false;
+    this.sharedService.post('pay-fine', this.paymentRecords).subscribe(res => {
+      console.log(res);
+      this.getRecords();
     })
   }
 }
