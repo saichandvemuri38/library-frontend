@@ -1,6 +1,5 @@
-
+<h2 *ngIf="spinnerCheck" class="spinner">Loading...</h2>
 <app-header *ngIf="auth.loggedIn() && !loginScreen" ></app-header>
-<div *ngIf="spinnerCheck" >
-  <div class="loader-circle">dsfdfgh</div>
-</div>
+
+
 <router-outlet></router-outlet>

@@ -2,7 +2,9 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SpinnerService } from './services/auth/spinner.service';
 import { AuthService } from './services/auth/auth.service';
 import { Router } from '@angular/router';
-
+interface NgxSpinnerConfig {
+  type?: string;
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +16,7 @@ export class AppComponent implements OnInit{
   public loginScreen = false;
   ngOnInit(): void {
     this.router.url.includes("login") ? this.loginScreen = true : this.loginScreen = false;
+    this.spinnerInit();
   }
   constructor(public spinner:SpinnerService,private cdref: ChangeDetectorRef,public auth:AuthService,public router:Router){
 
