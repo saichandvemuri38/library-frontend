@@ -8,7 +8,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 })
 export class SharedService {
 
-  public Url = "https://library-backend-n2qs.onrender.com/api/";
+  public Url = "http://localhost:5000/api/";
 
   constructor(private _http: HttpClient, private _router: Router) { }
 
@@ -18,8 +18,8 @@ export class SharedService {
   public post(url: string, body: any) {
     return this._http.post<any>(this.Url + url, body).pipe(catchError(this.errorHandler));
   }
-  public get(url: any) {
-    return this._http.get<any>(this.Url + url).pipe(catchError(this.errorHandler))
+  public get(url: any,body?:any) {
+    return this._http.get<any>(this.Url + url,body).pipe(catchError(this.errorHandler))
   }
   public delete(url:any,body:any){
     return this._http.delete<any>(this.Url + url,body).pipe(catchError(this.errorHandler));

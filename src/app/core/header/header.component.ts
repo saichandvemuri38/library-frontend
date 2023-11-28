@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -12,11 +13,18 @@ export class HeaderComponent implements OnInit {
 
   }
   public payload;
-  constructor(public auth: AuthService, public sharedService: SharedService) {
+  constructor(public auth: AuthService, public sharedService: SharedService,private _route: Router) {
     this.payload = JSON.parse(sessionStorage.getItem('payload'));
     console.log(this.payload)
   }
   public items = [
+    {
+      label: 'Profile',
+      icon: 'pi pi-user',
+      command: () => {
+       this._route.navigateByUrl('/profile')
+      }
+    },
     {
       label: 'Sign Out',
       icon: 'pi pi-sign-out',

@@ -11,6 +11,8 @@ import { BooksListComponent } from './core/books-list/books-list.component';
 import { BookUserRecordsComponent } from './core/book-user-records/book-user-records.component';
 import { ReserveBookListComponent } from './core/reserve-book-list/reserve-book-list.component';
 import { PaymentComponent } from './core/payment/payment.component';
+import { ForgotPasswordComponent } from './core/auth/forgot-password/forgot-password.component';
+import { ProfileComponent } from './core/profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'records', component: BookUserRecordsComponent },
   { path: 'reserve-book', component: ReserveBookListComponent },
   { path: 'payment', component: PaymentComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Student' } },
   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Admin' } },
   { path: 'super-admin-dashboard', component: SuperAdminDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Super-Admin' } }

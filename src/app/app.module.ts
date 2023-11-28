@@ -26,6 +26,8 @@ import { LibraryListComponent } from './core/library-list/library-list.component
 import { BookUserRecordsComponent } from './core/book-user-records/book-user-records.component';
 import { ReserveBookListComponent } from './core/reserve-book-list/reserve-book-list.component';
 import { PaymentComponent } from './core/payment/payment.component';
+import { ForgotPasswordComponent } from './core/auth/forgot-password/forgot-password.component';
+import { ProfileComponent } from './core/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { PaymentComponent } from './core/payment/payment.component';
     LibraryListComponent,
     BookUserRecordsComponent,
     ReserveBookListComponent,
-    PaymentComponent
+    PaymentComponent,
+    ForgotPasswordComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
