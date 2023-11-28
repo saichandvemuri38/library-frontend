@@ -14,12 +14,16 @@ export class AppComponent implements OnInit{
   title = 'library-frontend';
   public spinnerCheck = false;
   public loginScreen = false;
+  public payload;
   ngOnInit(): void {
     this.router.url.includes("login") ? this.loginScreen = true : this.loginScreen = false;
     this.spinnerInit();
   }
   constructor(public spinner:SpinnerService,private cdref: ChangeDetectorRef,public auth:AuthService,public router:Router){
-
+    this.payload = this.auth.getPayload();
+    if(this.payload){
+      this.router.navigateByUrl('/user-dashboard');
+    }
   }
   spinnerInit() {
     this.spinner.getSpinnerObservable().subscribe((res) => {
