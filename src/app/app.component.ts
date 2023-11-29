@@ -21,12 +21,15 @@ export class AppComponent implements OnInit{
   }
   constructor(public spinner:SpinnerService,private cdref: ChangeDetectorRef,public auth:AuthService,public router:Router){
     this.payload = this.auth.getPayload();
-    if(this.payload?.role == "Student"){
-      this.router.navigateByUrl('/user-dashboard');
-    }
-    else if(this.payload?.role == "Admin"){
-      this.router.navigateByUrl('admin-dashboard');
-    }
+    // if(this.payload?.role == "Student"){
+    //   this.router.navigateByUrl('/user-dashboard');
+    // }
+    // else if(this.payload?.role == "Admin"){
+    //   this.router.navigateByUrl('admin-dashboard');
+    // }
+    //    if(this.payload){
+    //   this.router.navigateByUrl('/user-dashboard');
+    // }
   }
   spinnerInit() {
     this.spinner.getSpinnerObservable().subscribe((res) => {

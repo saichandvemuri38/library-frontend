@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class FinesComponent implements OnInit {
   public payload;
-  public bookList;
+  public fineList;
   constructor(public sharedService: SharedService, public auth: AuthService) { }
   ngOnInit(): void {
     this.payload = this.auth.getPayload();
@@ -18,7 +18,7 @@ export class FinesComponent implements OnInit {
   }
   getRecords() {
     this.sharedService.get("fine-list?libraryname="+this.payload.libraryname).subscribe(res => {
-      this.bookList = res;
+      this.fineList = res;
     })
   }
 }

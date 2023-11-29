@@ -61,6 +61,8 @@ export class BookUserRecordsComponent implements OnInit {
   public payFine(product) {
     this.payment = true;
    this.paymentRecords = product;
+   this.paymentRecords.userName = this.payload.name;
+   console.log(this.paymentRecords)
   }
   public checkOutLibName;
   public libraryList;
@@ -68,6 +70,7 @@ export class BookUserRecordsComponent implements OnInit {
   public showCheckOutDialog(product) {
     this.checkoutBook = true;
     this.selectedProduct = product;
+    this.selectedProduct.userName = this.payload.name;
     this.sharedService.get('library-list').subscribe(res => {
       this.libraryList = res;
     })
