@@ -1,10 +1,10 @@
 <!-- <p>header works!</p> -->
-<nav class="navbar bg-body-tertiary shadow-sm">
+<nav class="navbar bg-white shadow-sm">
   <div class="container-fluid d-flex align-items-center justify-content-between">
-    <h5 class="col-4" routerLink="/user-dashboard">Library Management System</h5>
-    <h5 class="col-4">{{payload.role}}</h5>
+    <div class="col-4 mb-0 logo" routerLink="/user-dashboard"><img src="../../../assets/images/library-logo.png" class="img-fluid"></div>
+    <h4 class="col-4 text-center AvenirLTStd-Heavy mb-0">{{payload.role}}</h4>
 
-    <div class="">
+    <div class="col-4 text-end">
       <p-avatar icon="pi pi-building" styleClass="me-2 cursor-pointer" pTooltip="Library List" routerLink="user-dashboard" size="small" shape="circle"  *ngIf="payload.role == 'Student'"></p-avatar>
 
       <p-avatar icon="pi pi-sign-in" pTooltip="Books Transactions History" tooltipPosition="left" styleClass="me-2 cursor-pointer" routerLink="records" size="small" shape="circle"  *ngIf="payload.role == 'Student'"></p-avatar>

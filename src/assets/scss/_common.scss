@@ -1,0 +1,14 @@
+
+html {
+  font-size: 16px;
+}
+body {
+  @include margin(0, 0, 0, 0);
+  @include size(null, 100vh);
+  font-family: "AvenirLTSTD-Roman", sans-serif;
+  background-color: #e0e1e2;
+}
+
+.bg-white{
+  background-color: $white;
+}
