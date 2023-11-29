@@ -10,39 +10,41 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
   public loginform: FormGroup;
-  constructor( private formBuilder: FormBuilder,private _auth:AuthService,private _route:Router) {
+  constructor(private formBuilder: FormBuilder, private _auth: AuthService, private _route: Router) {
     this.loginform = this.loginForm();
-   }
+  }
 
   ngOnInit(): void {
   }
-  loginForm(){
-   return this.formBuilder.group({
-      email: ['', [Validators.required,Validators.email,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+  loginForm() {
+    return this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       password: ['', Validators.required]
-  });
+    });
   }
- get loginValid(){
+  get loginValid() {
     return this.loginform.controls;
   }
-  onSubmit(){
-    this._auth.postLogin(this.loginform.value).subscribe(res =>{
-      console.log(res);
-      sessionStorage.setItem('token',res.token);
-      sessionStorage.setItem('payload',JSON.stringify(res.payload));
-      if(res.payload.role == "Student" || res.payload.role == "Teacher" ){
-        this._route.navigate(['/user-dashboard'])
-      }
-      else if(res.payload.role == "Admin"){
-        this._route.navigate(['/admin-dashboard'])
-      }
-      else if(res.payload.role == "Super-Admin"){
-        this._route.navigate(['/super-admin-dashboard'])
-      }
+  onSubmit() {
+    if (this.loginform.valid) {
+      this._auth.postLogin(this.loginform.value).subscribe(res => {
+        console.log(res);
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('payload', JSON.stringify(res.payload));
+        if (res.payload.role == "Student" || res.payload.role == "Teacher") {
+          this._route.navigate(['/user-dashboard'])
+        }
+        else if (res.payload.role == "Admin") {
+          this._route.navigate(['/admin-dashboard'])
+        }
+        else if (res.payload.role == "Super-Admin") {
+          this._route.navigate(['/super-admin-dashboard'])
+        }
 
-    },
-      (error: any) =>{
-      console.log(error)
-    })
+      },
+        (error: any) => {
+          console.log(error)
+        })
+    }
   }
 }
