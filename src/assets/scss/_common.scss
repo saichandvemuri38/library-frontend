@@ -12,3 +12,9 @@ body {
 .bg-white{
   background-color: $white;
 }
+.bg-cont{
+  background-image: url("../images/library-bg.jpg");
+  background-size: cover;
+  background-color: #2121216b;
+  background-blend-mode: color-burn;
+}

@@ -13,6 +13,8 @@ import { ReserveBookListComponent } from './core/reserve-book-list/reserve-book-
 import { PaymentComponent } from './core/payment/payment.component';
 import { ForgotPasswordComponent } from './core/auth/forgot-password/forgot-password.component';
 import { ProfileComponent } from './core/profile/profile.component';
+import { AdminLibraryBookListComponent } from './core/admin-dashboard/admin-library-book-list/admin-library-book-list.component';
+import { FinesComponent } from './core/admin-dashboard/fines/fines.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'fines', component: FinesComponent },
+  { path: 'admin-book-list', component: AdminLibraryBookListComponent ,canActivate: [AuthGuard, RoleGuard], data: { role: 'Admin' }},
   { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Student' } },
   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Admin' } },
   { path: 'super-admin-dashboard', component: SuperAdminDashboardComponent, canActivate: [AuthGuard, RoleGuard], data: { role: 'Super-Admin' } }

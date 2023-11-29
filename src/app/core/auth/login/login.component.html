@@ -1,8 +1,8 @@
 <!-- <p>login works!</p> -->
-<div class="d-flex align-items-center justify-content-center h-100">
+<div class="d-flex align-items-center justify-content-center h-100 bg-cont">
   <p-card [style]="{width: '420px',margin :'0 auto'}" styleClass="p-card-shadow">
-    <h5 class="text-center mb-4">Library Management System</h5>
-    <form [formGroup]="loginform" (ngSubmit)="onSubmit()" class=" ">
+    <div class=" mb-0 logo" ><img src="../../../assets/images/library-logo.png" class="img-fluid"></div>
+    <form [formGroup]="loginform" (ngSubmit)="onSubmit()" class=" mt-2">
       <div class="form-group mb-2">
         <input type="text" class="form-control" pInputText placeholder="Email" formControlName="email" required [class.is-invalid]="loginValid['email'].invalid && loginValid['email'].touched">
      <div class="" *ngIf="loginValid['email'].errors && loginValid['email'].touched">
