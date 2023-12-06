@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    sessionStorage.removeItem('payload');
+    sessionStorage.removeItem('token');
   }
   loginForm() {
     return this.formBuilder.group({

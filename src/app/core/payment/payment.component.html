@@ -5,21 +5,17 @@
 
   <form>
     <div class="form-group">
-      <label for="card-number">Card Number</label>
-      <input type="text" id="card-number" placeholder="Card number">
-    </div>
+      <input type="text" pInputText id="card-number" placeholder="Card number">
+      </div>
     <div class="form-group">
-      <label for="card-holder">Card Holder</label>
-      <input type="text" id="card-holder" placeholder="Card holder's name">
+      <input type="text" pInputText id="card-holder" placeholder="Card holder's name">
     </div>
     <div class="form-row">
       <div class="form-group form-column">
-        <label for="expiry-date">Expiry Date</label>
-        <input type="text" id="expiry-date" placeholder="MM/YY">
+        <input type="text" pInputText id="expiry-date" placeholder="MM/YY">
       </div>
       <div class="form-group form-column">
-        <label for="cvv">CVV</label>
-        <input type="text" id="cvv" placeholder="CVV">
+        <input type="text" pInputText id="CVV" placeholder="CVV">
       </div>
     </div>
     <button type="submit" class="click-button" onclick="showLoading(event, this)">PAY NOW - $(TOTAL)</button>

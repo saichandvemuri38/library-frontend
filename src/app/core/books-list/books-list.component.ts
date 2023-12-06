@@ -67,7 +67,8 @@ console.log(date)
       userId: this.payload.subject,
       status: "check-in",
       startDate: (new Date()).toLocaleString('en-US'),
-      endDate: date.toLocaleString('en-US')
+      endDate: date.toLocaleString('en-US'),
+      shelve:item.shelve
     }
     this.sharedService.post('check-in', obj).subscribe((res) => {
       console.log(res);

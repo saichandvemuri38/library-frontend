@@ -86,7 +86,8 @@ export class BookUserRecordsComponent implements OnInit {
       price: this.selectedProduct.price,
       libraryname: item.name,
       bookId: this.selectedProduct.bookId,
-      image: this.selectedProduct.image
+      image: this.selectedProduct.image,
+      shelve: this.selectedProduct.shelve
     }
     this.sharedService.post('check-out', obj).subscribe(res => {
       console.log(res)

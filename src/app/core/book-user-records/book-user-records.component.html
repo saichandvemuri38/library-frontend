@@ -72,30 +72,26 @@
   </div>
 
 </p-dialog>
-<p-dialog header="PAYMENT PORTAL" [modal]="true" [(visible)]="payment" [closable]="false" [style]="{width: '50vw'}">
+<p-dialog header="PAYMENT PORTAL" [modal]="true" [(visible)]="payment" [closable]="true" [style]="{width: '50vw'}">
   <div class="credit-card-form">
     <img class="Image1" src="https://i.ibb.co/hgJ7z3J/6375aad33dbabc9c424b5713-card-mockup-01.png"
       alt="6375aad33dbabc9c424b5713-card-mockup-01" >
     <form>
       <div class="form-group">
-        <label for="card-number">Card Number</label>
-        <input type="text" id="card-number" placeholder="Card number">
+        <input type="text" id="card-number" pInputText placeholder="Card number">
       </div>
       <div class="form-group">
-        <label for="card-holder">Card Holder</label>
-        <input type="text" id="card-holder" placeholder="Card holder's name">
+        <input type="text" id="card-holder" pInputText placeholder="Card holder's name">
       </div>
       <div class="form-row justify-content-between">
         <div class="form-group form-column">
-          <label for="expiry-date">Expiry Date</label>
-          <input type="text" id="expiry-date" placeholder="MM/YY">
+          <input type="text" id="expiry-date" pInputText placeholder="MM/YY">
         </div>
         <div class="form-group form-column ms-2">
-          <label for="cvv">CVV</label>
-          <input type="text" id="cvv" placeholder="CVV">
+          <input type="text" id="cvv"  placeholder="CVV">
         </div>
       </div>
-      <button type="submit" class="click-button" (click)="paymentSuccess()">PAY NOW - ${{paymentRecords?.fine}}(TOTAL)</button>
+      <p-button type="submit" class="w-100" p-button (click)="paymentSuccess()">PAY NOW - ${{paymentRecords?.fine}}(TOTAL)</p-button>
     </form>
   </div>
 

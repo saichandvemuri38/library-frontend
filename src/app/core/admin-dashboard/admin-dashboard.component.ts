@@ -11,7 +11,7 @@ declare var $:any;
 })
 export class AdminDashboardComponent implements OnInit {
   public addBookForm: FormGroup;
-  public department = [{ id: 1, name: "Computer Science" }, { id: 2, name: "Arts & Science" }]
+  public department = [{ id: 1, name: "Computer Science" }, { id: 2, name: "Electrical Engineering" },{ id: 3, name: "Mechanical Engineering" }]
   constructor(private formBuilder: FormBuilder, private _auth: AuthService, private _route: Router, public shared: SharedService) {
     this.addBookForm = this.addBook();
   }
