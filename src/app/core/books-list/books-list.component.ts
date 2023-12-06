@@ -25,6 +25,7 @@ export class BooksListComponent implements OnInit {
     console.log(this.router.snapshot.queryParamMap.get('libraryname'));
     this.libname = this.router.snapshot.queryParamMap.get('libraryname') ?? "";
     this.getRecords();
+    console.log(this.payload)
   }
   getRecords() {
     this.sharedService.get("book-list?libraryname=" + this.libname).subscribe(res => {
@@ -33,7 +34,7 @@ export class BooksListComponent implements OnInit {
     })
   }
   getReserveRecords() {
-    this.sharedService.get('reserve-book?userId=' ).subscribe(res => {
+    this.sharedService.get('reserve-book?userId='+ this.payload.subject ).subscribe(res => {
       this.reserveList = res;
       this.reserveList.forEach(element => {
         this.bookList.map(x=>{
