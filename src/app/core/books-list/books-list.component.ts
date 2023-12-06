@@ -49,7 +49,7 @@ export class BooksListComponent implements OnInit {
     console.log(item)
     let date = new Date();
     date.setDate(date.getDate() + 30);
-
+console.log(date)
     let obj = {
       bookId: item._id,
       name: item.name,
