@@ -8,6 +8,7 @@
         <th>Author</th>
         <th>Description</th>
         <th>Department</th>
+        <th>Shelves</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
@@ -19,6 +20,7 @@
         <td>{{ product.author }}</td>
         <td>{{ product.description }}</td>
         <td>{{ product.department }}</td>
+        <td>{{product.shelve}}</td>
       </tr>
     </ng-template>
   </p-table>

@@ -33,8 +33,12 @@ export class AdminDashboardComponent implements OnInit {
       rent: [null, Validators.required],
     });
   }
+  public characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  public numbers = '0123456789'
   formSubmit() {
     console.table(this.addBookForm.value);
+    const charactersLength = this.characters.length;
+    const numberLength = this.numbers.length;
     let obj = {
       name: this.addBookForm.value.name,
       image: this.uploadedFiles,
@@ -43,10 +47,8 @@ export class AdminDashboardComponent implements OnInit {
       publisher: this.addBookForm.value.publisher,
       department: this.addBookForm.value.department,
       price: this.addBookForm.value.price,
-      // quantity: this.addBookForm.value.quantity,
-      // availability: this.addBookForm.value.availability,
-      // rent: this.addBookForm.value.rent,
-      libraryname: this.payload['libraryname']
+      libraryname: this.payload['libraryname'],
+      shelve:this.characters.charAt(Math.floor(Math.random() * charactersLength))+this.numbers.charAt(Math.floor(Math.random() * numberLength))
     }
     this.shared.post("add-book", obj).subscribe((res) => {
       console.log(res);
