@@ -28,7 +28,7 @@
         <td>
           <p-button icon="pi pi-book" rounded="true" text="true" raised="true" pTooltip="Reserve Book" *ngIf="!(product.status == 'reserved')"
           (click)="submitReserveBook(product)"></p-button>
-          <p-button icon="pi pi-sign-in" pTooltip="Check In" class="ms-2" rounded="true" text="true" raised="true" *ngIf="!(product.status == 'reserved')"
+          <p-button icon="pi pi-sign-in" pTooltip="Check Out" class="ms-2" rounded="true" text="true" raised="true" *ngIf="!(product.status == 'reserved')"
             (onClick)="checkIn(product)"></p-button>
         </td>
       </tr>

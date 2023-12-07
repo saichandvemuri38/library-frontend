@@ -56,10 +56,17 @@
           <h5 class="text-center mb-4">Add Admin User</h5>
           <form [formGroup]="registerData" (ngSubmit)="onSubmit()" class=" ">
             <div class="form-group mb-2">
-              <input type="text" class="form-control" pInputText placeholder="Full Name" formControlName="name" required
-                [class.is-invalid]="registerValid['name'].invalid && registerValid['name'].touched">
-              <div class="" *ngIf="registerValid['name'].errors && registerValid['name'].touched">
-                <small class="text-danger" *ngIf="registerValid['name'].errors['required']">Enter Name</small>
+              <input type="text" class="form-control" pInputText placeholder="First Name" formControlName="fname" required
+                [class.is-invalid]="registerValid['fname'].invalid && registerValid['fname'].touched">
+              <div class="" *ngIf="registerValid['fname'].errors && registerValid['fname'].touched">
+                <small class="text-danger" *ngIf="registerValid['fname'].errors['required']">First Name</small>
+              </div>
+            </div>
+            <div class="form-group mb-2">
+              <input type="text" class="form-control" pInputText placeholder="Last Name" formControlName="lname" required
+                [class.is-invalid]="registerValid['lname'].invalid && registerValid['lname'].touched">
+              <div class="" *ngIf="registerValid['lname'].errors && registerValid['lname'].touched">
+                <small class="text-danger" *ngIf="registerValid['lname'].errors['required']">Last Name</small>
               </div>
             </div>
             <div class="form-group mb-2">
@@ -82,12 +89,18 @@
                 <small class="text-danger" *ngIf="registerValid['library_name'].errors['required']">Enter Role</small>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-2">
               <input type="password" class="form-control" pInputText placeholder="Password" formControlName="password"
                 [class.is-invalid]="registerValid['password'].invalid && registerValid['password'].touched">
               <div class="" *ngIf="registerValid['password'].errors && registerValid['password'].touched">
                 <small class="text-danger" *ngIf="registerValid['password'].errors['required']">Enter Passsword</small>
-
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" pInputText placeholder="Confrim Password" formControlName="confirmPassword"
+                [class.is-invalid]="registerValid['confirmPassword'].invalid && registerValid['confirmPassword'].touched">
+              <div class="" *ngIf="registerValid['confirmPassword'].errors && registerValid['confirmPassword'].touched">
+                <small class="text-danger" *ngIf="registerValid['confirmPassword'].errors['required']">Confirm Passsword</small>
               </div>
             </div>
             <div class="sizes mt-2 text-center">

@@ -15,6 +15,7 @@ export class BookUserRecordsComponent implements OnInit {
   public minDate = new Date();
   public checkoutBook = false;
   public payment = false;
+  public cardType= [{id:1,name:'Credit Card'},{id:2,name:'Debit Card'}]
   public items: MenuItem[] | undefined = [{ label: "Renewal Book" }]
   constructor(public sharedService: SharedService, public authService: AuthService) { }
   ngOnInit(): void {

@@ -44,9 +44,11 @@ export class SuperAdminDashboardComponent implements OnInit {
   }
   registerForm() {
     return this.formBuilder.group({
-      name: ['', Validators.required],
+      fname: ['', Validators.required],
+      lname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
       usertype: ['', Validators.required],
       library_name: [null, Validators.required]
     });

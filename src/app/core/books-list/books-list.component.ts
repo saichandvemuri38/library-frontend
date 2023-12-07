@@ -65,7 +65,7 @@ console.log(date)
       description: item.description,
       libraryname: item.libraryname,
       userId: this.payload.subject,
-      status: "check-in",
+      status: "on-hand",
       startDate: (new Date()).toLocaleString('en-US'),
       endDate: date.toLocaleString('en-US'),
       shelve:item.shelve
